@@ -158,8 +158,7 @@ export default function CategoryPage() {
           <div className="mb-8">
             <h2 className="font-display text-2xl font-semibold text-ink">Select a category</h2>
             <p className="mt-1 text-sm text-slate">
-              {state.categories.length} categor{state.categories.length === 1 ? "y" : "ies"} available
-              for {state.name}
+              {state.categories.length} categories available for {state.name}
             </p>
           </div>
 
