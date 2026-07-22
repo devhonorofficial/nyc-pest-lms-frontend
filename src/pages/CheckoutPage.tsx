@@ -1,19 +1,26 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import StepProgress from "../components/StepProgress";
 import { brand } from "../config/brand";
+import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
 import { useToast } from "../context/ToastContext";
 
 export default function CheckoutPage() {
   const { items, subtotal, itemCount } = useCart();
+  const { user } = useAuth();
   const { error: showError } = useToast();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   async function handlePay() {
+    if (!user) {
+      navigate("/login", { state: { from: "/checkout" } });
+      return;
+    }
     setLoading(true);
     setError(null);
     try {
@@ -71,7 +78,6 @@ export default function CheckoutPage() {
   return (
     <div className="min-h-screen bg-surface font-body text-ink">
       <Header />
-
       <main>
         {/* Intro */}
         <section className="relative overflow-hidden border-b border-primary-light bg-white">

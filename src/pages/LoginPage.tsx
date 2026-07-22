@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthShell, { AuthField, authButtonClassName, authInputClassName } from "../components/AuthShell";
 import { useAuth } from "../context/AuthContext";
 import { useToast } from "../context/ToastContext";
@@ -24,6 +24,8 @@ export default function LoginPage() {
   const { login } = useAuth();
   const { success, error: showError } = useToast();
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = (location.state as { from?: string } | null)?.from || "/dashboard";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -37,7 +39,7 @@ export default function LoginPage() {
     try {
       await login(email, password);
       success("Welcome back — you're signed in.");
-      navigate("/dashboard");
+      navigate(from, { replace: true });
     } catch (err) {
       const message = err instanceof Error ? err.message : "Login failed";
       setError(message);
