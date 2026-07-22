@@ -136,7 +136,7 @@ export default function StatesPage() {
                     <h3 className="font-display text-xl font-semibold text-ink">{state.name}</h3>
                     <p className="mt-1 text-sm text-slate">
                       {state.categories.length} license categories
-                    </p>
+                    </p>``
                     <ul className="mt-4 flex flex-wrap gap-1.5">
                       {state.categories.map((cat) => (
                         <li

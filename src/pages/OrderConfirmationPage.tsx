@@ -45,8 +45,8 @@ export default function OrderConfirmationPage() {
                     Access dashboard
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-slate">
-                    Course login and your “My Courses” dashboard are launching soon — we’ll email you
-                    as soon as you can sign in and start watching lessons.
+                    Your student dashboard is ready — sign in anytime to watch your course videos and
+                    track your progress.
                   </p>
                 </div>
 
@@ -63,10 +63,10 @@ export default function OrderConfirmationPage() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Link
-                  to="/my-courses"
+                  to="/dashboard"
                   className="inline-flex items-center justify-center rounded-xl bg-primary px-5 py-2.75 text-sm font-semibold text-white transition hover:bg-primary-dark"
                 >
-                  Go to My Courses
+                  Go to Dashboard
                 </Link>
                 <Link
                   to="/"

@@ -123,7 +123,7 @@ export default function Header() {
   return (
     <header
       className={[
-        "sticky top-0 z-50 transition-[box-shadow,background-color] duration-300",
+        "x`top-0 z-50 transition-[box-shadow,background-color] duration-300",
         scrolled
           ? "bg-white/95 shadow-[0_8px_30px_rgba(10,41,77,0.08)] backdrop-blur-md"
           : "bg-white",
@@ -210,10 +210,10 @@ export default function Header() {
             {user ? (
               <div className="hidden items-center gap-2 sm:flex">
                 <Link
-                  to="/my-courses"
+                  to="/dashboard"
                   className="rounded-lg px-3 py-2 text-sm font-medium text-ink transition hover:bg-primary-light hover:text-primary-dark"
                 >
-                  My Courses
+                  Dashboard
                 </Link>
                 <button
                   type="button"
@@ -286,11 +286,11 @@ export default function Header() {
             {user ? (
               <>
                 <Link
-                  to="/my-courses"
+                  to="/dashboard"
                   onClick={closeMenu}
                   className="rounded-lg bg-primary-light px-4 py-3 text-sm font-medium text-primary-dark"
                 >
-                  My Courses
+                  Dashboard
                 </Link>
                 <button
                   type="button"

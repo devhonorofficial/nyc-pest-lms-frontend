@@ -38,7 +38,7 @@ export default function RegisterPage() {
     try {
       await register(email, password, name || undefined);
       success("Account created — you're signed in.");
-      navigate("/my-courses");
+      navigate("/dashboard");
     } catch (err) {
       const message = err instanceof Error ? err.message : "Registration failed";
       setError(message);
